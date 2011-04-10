@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ada cipher/decipher</title>
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.0r4/build/reset/reset-min.css">
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script type="text/javascript" src="ada.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+    $('#cipher').bind('keyup', function () {
+        var cipher = $(this).val();
+        var plain = ada.decipher(cipher);
+        $('#plain').val(plain);
+    }).keyup();
+
+    $('#plain').bind('keyup', function () {
+        var plain = $(this).val();
+        var cipher = ada.encipher(plain);
+        $('#cipher').val(cipher);
+    });
+});
+</script>
+
+<style type="text/css">
+html {width: 100%}
+html,a {
+    font-family: georgia,"times new roman",serif;
+    color: #251;
+    background-color: #eef0ee;
+}
+textarea {
+    font-family: verda,arial,sans-serif;
+    color: #251;
+    display:block;
+    margin:2% auto;
+    width:90%;
+}
+p {
+    margin: 10px;
+}
+
+div.content {
+    margin:auto;
+    width:60%;
+}
+</style>
+</head>
+
+<body>
+
+<noscript>This service, like pretty much the entire web these days, requires Javascript. Sorry.</noscript>
+
+<div class="content">
+
+	<p>Cipher<textarea id="cipher">klv zdB AoyvBno wkh gwzxm dqg kzwAAqvo a gwttp vq wjfhm</textarea></p>
+	<p>Plain<textarea id="plain"></textarea></p>
+
+	<p>This implements the cipher used in correspondence between Ada and Van Veen described in <a href="http://www.ada.auckland.ac.nz/ada126.htm">Part 1, Chapter 26</a> of Vladimir Nabokov's <i>Ada</i>. <a href="http://vnjapan.org/main/ada/ada5.html">Brian Boyd and the Kyoto Reading Circle have more</a>.</p>
+
+</div>
+
+</body>
+</html>
